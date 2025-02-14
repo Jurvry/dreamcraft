@@ -13,40 +13,31 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #6366f1;
             --secondary: #ec4899;
             --dark: #1f2937;
             --light: #f9fafb;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-            --secondary-gradient: linear-gradient(135deg, var(--secondary), var(--primary));
+            --accent: #ffcc00;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--light);
-            overflow-x: hidden;
             color: var(--dark);
             scroll-behavior: smooth;
         }
 
-        .gradient-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
         }
 
         .navbar {
-            transition: all 0.3s ease;
-            padding: 1.5rem 0; /* Increased padding for navbar */
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
@@ -54,182 +45,134 @@
         }
 
         .nav-link {
-            font-weight: 600; /* Bold text for better visibility */
-            padding: 1rem 1.5rem; /* More generous padding */
-            border-radius: 12px;
+            color: var(--dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 1.5rem 2rem;
             transition: all 0.3s ease;
         }
 
         .nav-link:hover {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary) !important;
-            transform: translateY(-3px); /* Slightly more lift */
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(236, 72, 153, 0.4)), url('path-to-your-background-image.jpg') center/cover no-repeat fixed; /* Replace with your image */
-            padding: 400px 0 300px; /* Even larger hero section */
-            color: white;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5); /* More pronounced text shadow */
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.8)), url('path-to-your-background-image.jpg') center/cover no-repeat fixed;
+            min-height: 120vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .btn-gradient {
-            background: var(--gradient);
+        .hero h1 {
+            font-size: 4.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
             border: none;
             color: white;
-            padding: 25px 60px; /* Larger button for emphasis */
+            padding: 1rem 3rem;
             border-radius: 50px;
-            font-weight: 700; /* Extra bold */
-            font-size: 1.2em; /* Larger text */
+            font-size: 1.2rem;
+            font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .btn-gradient:hover {
-            transform: translateY(-5px); /* More significant lift on hover */
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
-            background: var(--secondary-gradient);
+        }
+
+        .section-content {
+            padding: 200px 0;
         }
 
         .feature-card {
             background: white;
-            border-radius: 32px; /* Even more rounded corners */
-            padding: 5rem; /* Very spacious padding */
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 80px; /* Large gap between cards */
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-20px); /* More pronounced elevation on hover */
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+            transform: translateY(-20px);
+            box-shadow: 0 40px 100px rgba(99, 102, 241, 0.2);
         }
 
         .feature-icon {
-            width: 150px; /* Significantly larger icon */
+            width: 150px;
             height: 150px;
-            background: var(--gradient);
+            background: var(--primary);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 4rem; /* More space below icon */
-            transition: transform 0.3s ease;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            transition: all 0.3s ease;
         }
 
         .feature-icon:hover {
-            transform: scale(1.3); /* Larger scale on hover */
-        }
-
-        .feature-icon i {
-            font-size: 4rem; /* Much larger icon font */
-            color: white;
-        }
-
-        .social-links a {
-            width: 80px; /* Larger social icons */
-            height: 80px;
-            border-radius: 50%;
-            background: var(--primary);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin: 0 30px; /* More space between icons */
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .social-links a:hover {
             background: var(--secondary);
-            transform: translateY(-8px); /* More dramatic lift */
-            box-shadow: 0 15px 20px rgba(236, 72, 153, 0.3);
+            transform: scale(1.1);
+        }
+
+        .iframe-container-full {
+            position: relative;
+            padding-bottom: 200%; /* Increased aspect ratio for larger view */
+            height: 0;
+            overflow: hidden;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 100px; /* Added margin for better spacing */
+        }
+
+        .iframe-container-full iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Now content overflows into the main scroll */
+            border: 0;
         }
 
         footer {
             background: var(--dark);
             color: white;
-            padding: 300px 0; /* Extremely grand footer */
+            padding: 200px 0;
+            text-align: center;
         }
 
-        /* Enhanced CSS for iframe styling */
-        .iframe-container {
-            position: relative;
-            padding-bottom: 150%; /* Significantly larger view for embedded content */
-            height: 0;
-            overflow: hidden;
-            margin-bottom: 150px; /* More spacing below iframes */
-            border-radius: 64px; /* Very rounded corners */
-            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2);
+        .social-links a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 20px;
+            transition: color 0.3s ease;
         }
 
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 64px;
+        .social-links a:hover {
+            color: var(--secondary);
         }
 
-        /* New for even larger section spacing */
-        section {
-            padding: 400px 0; /* Enormous padding for each section */
-        }
-
-        /* Specific style for Image Generator to make it even a bit bigger */
-        #ImageGenerator .iframe-container {
-            padding-bottom: 180%; /* Slightly bigger for Image Generator */
-            margin-bottom: 180px; /* More space below */
-        }
-
-        /* For smaller screens */
-        @media (max-width: 768px) {
-            .iframe-container {
-                padding-bottom: 200%; /* Even more space for mobile */
-            }
-            #ImageGenerator .iframe-container {
-                padding-bottom: 230%; /* Slightly bigger for Image Generator on mobile */
-            }
-            .hero {
-                padding: 200px 0; /* Adjust hero for mobile */
-            }
-            .feature-icon {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 3rem;
-            }
-            .feature-icon i {
-                font-size: 3rem;
-            }
-            section {
-                padding: 200px 0; /* Adjust section padding for mobile */
-            }
-            .nav-link {
-                padding: 0.8rem 1rem; /* Reduce padding for smaller screens */
-            }
-            .btn-gradient {
-                padding: 20px 40px; /* Adjust button size for mobile */
-                font-size: 1em; /* Normal text size */
-            }
-        }
-
-        /* Back to home button */
         .back-to-home {
             position: fixed;
             bottom: 40px;
             right: 40px;
-            z-index: 1000;
-            background: var(--gradient);
+            z-index: 1001;
+            background: var(--primary);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -239,21 +182,40 @@
         }
 
         .back-to-home:hover {
-            background: var(--secondary-gradient);
-            transform: scale(1.3);
+            background: var(--secondary);
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.3);
         }
 
         .back-to-home i {
-            font-size: 40px;
+            font-size: 2em;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .section-content {
+                padding: 100px 0;
+            }
+            .feature-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+            .nav-link {
+                padding: 1rem 1.5rem;
+            }
+            .iframe-container-full {
+                padding-bottom: 300%; /* Further increase for mobile */
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand fw-bold gradient-text" href="#home">
-                <i class="fas fa-sparkles me-2"></i>DreamCraft
-            </a>
+            <a class="navbar-brand fw-bold" href="#home" style="color: var(--primary); font-size: 2rem;">DreamCraft</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -269,114 +231,104 @@
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="container text-center" data-aos="fade-up">
-            <h1 class="display-1 fw-bold mb-5 gradient-text">Welcome to DreamCraft ✨</h1>
-            <p class="lead mb-5" style="font-size: 1.5em;">Transform your imagination into reality through creative design</p>
-            <a href="#about" class="btn btn-gradient">Start Creating</a>
+    <section id="home" class="hero">
+        <div class="container text-center">
+            <h1 class="mb-4">Welcome to DreamCraft 🌟</h1>
+            <p class="lead mb-5" style="font-size: 1.5rem;">Unleash Your Creativity with AI 🎨✨</p>
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <h2>AI-Powered Insights 🔍</h2>
+                    <p>Revolutionize your design process with our AI assistance.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Custom Designs 🎨</h2>
+                    <p>From concept to reality, we make your ideas come to life.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Image Magic 🖼️</h2>
+                    <p>Generate stunning visuals with just a few clicks.</p>
+                </div>
+            </div>
+            <a href="#about" class="btn btn-primary">Discover More</a>
         </div>
     </section>
 
-    <section class="py-5" id="about">
+    <section id="about" class="section-content">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5 gradient-text" data-aos="fade-up" style="font-size: 3em;">Our Features</h2>
+            <h2 class="text-center mb-5" style="font-size: 3rem;">Our Features</h2>
             <div class="row g-5">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4">
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-wand-magic-sparkles"></i>
-                        </div>
-                        <h4 class="mb-3" style="font-size: 2em;">AI-Powered Ideas</h4>
-                        <p style="font-size: 1.2em;">Get intelligent suggestions and creative direction for your next big project.</p>
+                        <div class="feature-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <h3>AI-Powered Ideas</h3>
+                        <p>Get intelligent suggestions for your next big project.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4">
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <h4 class="mb-3" style="font-size: 2em;">Custom Designs</h4>
-                        <p style="font-size: 1.2em;">Transform your vision into stunning visual content with our design tools.</p>
+                        <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h3>Custom Designs</h3>
+                        <p>Transform your vision into stunning visual content.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-4">
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <h4 class="mb-3" style="font-size: 2em;">Image Generation</h4>
-                        <p style="font-size: 1.2em;">Create unique, AI-generated images that perfectly match your creative vision.</p>
+                        <div class="feature-icon"><i class="fas fa-image"></i></div>
+                        <h3>Image Generation</h3>
+                        <p>Create unique, AI-generated images for your projects.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="AIProductHelper">
+    <section id="AIProductHelper" class="section-content">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5 gradient-text" data-aos="fade-up" style="font-size: 3em;">AI Product Helper</h2>
-            <div class="iframe-container">
+            <h2 class="text-center mb-5" style="font-size: 3rem;">AI Product Helper</h2>
+            <div class="iframe-container-full">
                 <iframe src="https://jurvry.github.io/Product-Idea-Helper/AI%20Product%20Idea%20Helper.html"></iframe>
             </div>
         </div>
     </section>
 
-    <section id="IsaacsDesigns">
+    <section id="IsaacsDesigns" class="section-content">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5 gradient-text" data-aos="fade-up" style="font-size: 3em;">Isaac's Designs</h2>
-            <div class="iframe-container">
+            <h2 class="text-center mb-5" style="font-size: 3rem;">Isaac's Designs</h2>
+            <div class="iframe-container-full">
                 <iframe src="https://jurvry.github.io/Crafted-by-Isaac---Innovative-Design/Crafted%20by%20Isaac%20-%20Innovative%20Design.html"></iframe>
             </div>
         </div>
     </section>
 
-    <section id="ImageGenerator">
+    <section id="ImageGenerator" class="section-content">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5 gradient-text" data-aos="fade-up" style="font-size: 3em;">Image Generator</h2>
-            <div class="iframe-container">
+            <h2 class="text-center mb-5" style="font-size: 3rem;">Image Generator</h2>
+            <div class="iframe-container-full">
                 <iframe src="https://jurvry.github.io/enhanced-creative-catalyst-1-/enhanced-creative-catalyst%20(1).html"></iframe>
             </div>
         </div>
     </section>
 
     <footer id="footer">
-        <div class="container text-center">
+        <div class="container">
             <div class="social-links mb-4">
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-pinterest"></i></a>
             </div>
-            <a href="mailto:yjurvey61@gmail.com" class="btn btn-gradient mb-4">
+            <a href="mailto:yjurvey61@gmail.com" class="btn btn-primary mb-4" style="font-size: 1.2rem;">
                 <i class="fas fa-envelope me-2"></i>Contact Us
             </a>
-            <p class="mb-0 text-muted" style="font-size: 1.5em;">© 2025 DreamCraft. All rights reserved.</p>
+            <p class="mb-0 text-muted" style="font-size: 1.2rem;">© 2025 DreamCraft. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Back to home button -->
-    <button class="back-to-home" onclick="window.location.href='#home';">
+    <!-- Home Button -->
+    <button class="back-to-home" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
         <i class="fas fa-home"></i>
     </button>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Smooth scrolling for links with hashes
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
